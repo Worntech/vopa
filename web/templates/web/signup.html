@@ -1,0 +1,77 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vopa Register</title>
+    <link rel="stylesheet" href="{% static 'web/css/signin.css' %}">
+</head>
+
+<body>
+    <br><br><br><br><br>
+
+            <!-- Signup Form -->
+                <div class="form-content">
+                    {% for m in messages %}
+                    <h6 style="color:red;">{{m}}</h6>
+                    {% endfor %}
+                    <p class="signup1">Signup Here</p>
+                    <form action="{% url 'signup' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="container">
+                            <label for="uname"><b>First Name</b></label><br>
+                            <input type="text" name="first_name" placeholder="Enter first name" class="input" required>
+
+                        <br>
+                        <label for="uname"><b>Last Name</b></label><br>
+                            <input type="text" name="last_name" placeholder="Enter last name" class="input" required>
+
+                        <br>
+                        <label for="uname"><b>User Name</b></label><br>
+                            <input type="text" name="username" placeholder="Enter user name" class="input" required>
+
+    
+                        <br>
+    
+                        <label for="uname"><b>Email</b></label><br>
+                            <input type="email" name="email" placeholder="Enter email" class="input" required>
+
+    
+                        <br>
+    
+                        <label for="uname"><b>Password</b></label><br>
+                            <input type="password" name="password" placeholder="Create password" class="password" required>
+
+    
+                        <br>
+    
+                        <label for="uname"><b>Confirm Password</b></label><br>
+                            <input type="password" name="password2" placeholder="Confirm password" class="password" required>
+                        <br>
+                            <button class="buttonlogin">Signup</button><br> <span>Have an account? <a href="{% url 'signin' %}" class="link login-link">Login</a></span>
+                        </div>
+                    </form>
+                    <br>
+                    <div class="form-link">
+                        {% comment %} <span>Already have an account? <a href="" class="link login-link">Login</a></span> {% endcomment %}
+                    </div>
+                </div>
+    
+                <div class="line"></div>
+    
+    
+            </div>
+        </section>
+    
+      </div>
+    
+</body>
+
+</html>
+
+{% endblock %}

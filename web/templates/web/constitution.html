@@ -1,0 +1,58 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'web/css/contactlist.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>VOPA constitution</title>
+</head>
+
+<body>
+    <br><br><br>
+    <div class="w3-container">
+        {% for m in messages %}
+        <p style="color:rgb(10, 159, 79)">{{m}}</p>
+        {% endfor %}
+      <h2>VOPA Constitution</h2>
+      <div class="w3-responsive">
+      <table class="w3-table-all">
+        
+      <tr>
+        <th>File Name</th>
+        <th>Date Uploaded</th>
+        <th>View File</th>
+        <th>Download</th>
+        <th>Delete</th>
+     
+      </tr>
+      {% if constitution %}
+      {% for i in constitution %}
+      <tr>
+        <td>VOPA constitution</td>
+        <td>{{i.date_created}}</td>
+        <td><a href="{{i.constitution.url}}">Read</a></td>
+        <td><a href="{{i.constitution.url}}" download>Download</a></td>
+        <td><p><a class="" href="{% url 'deleteconstitution' i.id %}">Delete</a></p></td>
+      </tr>
+      {% endfor %}
+      {% else %}
+      <th>No data found</th>
+      <th>No data found</th>
+      <th>No data found</th>
+      <th>No data found</th>
+      {% endif %}
+      </table>
+      </div>
+      
+      </div>
+</body>
+
+</html>
+
+{% endblock%}

@@ -1,0 +1,61 @@
+{% extends 'web/base1.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<br><br><br><br>
+
+<div class="w3-container">
+
+  {% for m in messages %}
+  <p style="color:rgb(10, 159, 79)">{{m}}</p>
+  {% endfor %}
+
+<h2>Contact messages</h2>
+<div class="w3-responsive">
+<table class="w3-table-all">
+  
+<tr>
+  <th>Full Name</th>
+  <th>Email</th>
+  <th>Country</th>
+  <th>Phone</th>
+  <th>Date</th>
+  <th>Message</th>
+</tr>
+{% if contactlist %}
+{% for i in contactlist %}
+<tr>
+  <td>{{i.Full_Name}}</td>
+  <td>{{i.Email}}</td>
+  <td>{{i.Country}}</td>
+  <td>{{i.Phone}}</td>
+  <td>{{i.date_created}}</td>
+  <td><a href="{% url 'viewcontact' i.id %}">View Message</a></td>
+</tr>
+{% endfor %}
+{% else %}
+<tr>
+  <td>No data found</td>
+  <td>No data found</td>
+  <td>No data found</td>
+  <td>No data found</td>
+  <td>No data found</td>
+  <td>No data found</td>
+</tr>
+{% endif %}
+</table>
+</div>
+
+</div>
+<br><br>
+</body>
+</html> 
+
+{% endblock %}

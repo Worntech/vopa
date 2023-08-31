@@ -1,0 +1,29 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'web/css/contact.css' %}">
+    <title>Vopa community</title>
+</head>
+<body>
+    <br><br><br><br>
+    <h3>Upload News to Vopa</h3>
+                <form method="POST" enctype="multipart/form-data">
+            
+                    {% csrf_token %}
+                    {{newspost.as_p}}
+            
+            
+            
+                    <input type="submit" value="Upload">
+                </form>
+    
+</body>
+</html>
+
+{% endblock %}

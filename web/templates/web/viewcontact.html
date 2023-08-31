@@ -1,0 +1,36 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<br><br><br>
+
+<div class="w3-container">
+
+<h3>Message from <h6>{{contact.Full_Name}}</h6></h3>
+<div class="w3-responsive">
+<table class="w3-table-all">
+  
+<tr>
+  <th>Message</th>
+  <th>Delete</th>
+</tr>
+<tr>
+  <td>{{contact.Message}}</td>
+  <td><a class="btn btn-sm btn-info" href="{% url 'deletecontact' contact.id %}">Delete</a></td>
+</tr>
+</table>
+</div>
+
+</div>
+<br><br>
+</body>
+</html> 
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vopa community update</title>
+</head>
+
+<body>
+    <br><br><br>
+    <h3>Update Post</h3>
+                <form method="POST" enctype="multipart/form-data">
+            
+                    {% csrf_token %}
+                    {{new.as_p}}
+            
+            
+            
+                    <input type="submit" value="Update">
+                </form>
+</body>
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<br><br><br>
+
+<div class="w3-container">
+
+  {% for m in messages %}
+  <p style="color:rgb(10, 159, 79)">{{m}}</p>
+  {% endfor %}
+
+<h5>VOPA LIBRARY BOOKS</h5>
+<div class="w3-responsive">
+<table class="w3-table-all">
+  
+<tr>
+    <th>Book Name</th>
+    <th>Date Uploaded</th>
+    <th>View File</th>
+    <th>Download</th>
+    <th>Delete</th>
+</tr>
+{% if filesdisplay %}
+{% for i in filesdisplay %}
+  <tr>
+    <td>{{i.Book_Name}}</td>
+    <td>{{i.date_created}}</td>
+    <td><a href="{{i.Upload_Book.url}}">Read</a></td>
+    <td><a href="{{i.Upload_Book.url}}" download>Download</a></td>
+    <td><p><a class="" href="{% url 'deletefiles' i.id %}">Delete</a></p></td>
+  </tr>
+  {% endfor %}
+{% else %}
+<tr>
+  <td>No data found</td>
+  <td>No data found</td>
+  <td>No data found</td>
+  <td>No data found</td>
+  <td>No data found</td>
+</tr>
+{% endif %}
+</table>
+</div>
+
+</div>
+<br><br>
+</body>
+</html> 
+
+{% endblock %}

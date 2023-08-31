@@ -1,0 +1,42 @@
+{% extends 'web/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'web/css/contactlist.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/contact.css' %}">
+</head>
+
+<body>
+    <br><br><br><br>
+    <div class="container">
+        <div style="text-align:center">
+            
+        </div>
+        <div class="row">
+          <div class="column">
+            {% for m in messages %}
+            <p style="color:rgb(10, 159, 79)">{{m}}</p>
+            {% endfor %}
+            <h4>Upload Book to Vopa</h4>
+            <form action="" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{files.as_p}}
+              
+              <button>Upload</button>
+            </form>
+            <br>
+          </div>
+        </div>
+      </div>
+</body>
+
+</html>
+
+{% endblock %}
